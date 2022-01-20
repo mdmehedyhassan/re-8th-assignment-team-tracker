@@ -1,0 +1,5 @@
+.main-home{
+    height: 300px;
+    background: url('../../../public/premier-league.jpg');
+    background-size: cover;
+}
