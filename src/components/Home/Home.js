@@ -15,6 +15,7 @@ const Home = () => {
                     teams.map(team => <AllTeam key={team.idTeam} team={team}></AllTeam>)
                 }
             </div>
+            <a href="https://github.com/mdmehedyhassan/re-team-tracker" target="blank"><button className="btn bt-outline-dark">GitHub link</button></a>
         </div>
     );
 };
