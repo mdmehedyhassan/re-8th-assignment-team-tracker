@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import { faFlag, faGlobe, faSearchLocation, faTransgender } from '@fortawesome/free-solid-svg-icons';
+import { faFlag, faGlobe, faHome, faSearchLocation, faTransgender } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Team = () => {
     const { id } = useParams();
@@ -24,25 +25,29 @@ const Team = () => {
                 <img className="h-75" src={myTeam?.strTeamBadge} alt="" />
             </div>
             <div className="text-light mt-5 mb-5">
-                <div style={{borderRadius: '20px'}} className="row bg-primary p-3">
-                    <div className="col-md-6">
+                <div style={{ borderRadius: '20px' }} className="d-flex flex-md-row flex-column justify-content-center align-items-center bg-primary p-3">
+                    <div className="text-center text-md-start col-md-6">
                         <h4>{myTeam?.strAlternate}</h4>
                         <p><FontAwesomeIcon icon={faSearchLocation} /> Founded: {myTeam?.intFormedYear}</p>
                         <p><FontAwesomeIcon icon={faFlag} /> Country: {myTeam?.strCountry}</p>
                         <p><FontAwesomeIcon icon={faTransgender} /> Gender: {myTeam?.strGender}</p>
                     </div>
                     <div className="col-md-6">
-                        <img style={{borderRadius: '10px'}} className="w-100" src={myTeam?.strTeamFanart4} alt="" />
+                        <img style={{ borderRadius: '10px' }} className="w-100" src={myTeam?.strTeamFanart4} alt="" />
                     </div>
                 </div>
                 <div className="mt-5 mb-5">
                     <p style={{ textAlign: "justify" }}><strong className="text-danger">Team Information: </strong>{myTeam?.strDescriptionEN}</p>
                     <p style={{ textAlign: "justify" }}><strong className="text-danger">Stadium Information: </strong>{myTeam?.strStadiumDescription}</p>
                 </div>
+                <Link to="/" className="btn btn-danger">
+                    Go Back Home <FontAwesomeIcon icon={faHome}/>
+                </Link>
                 <div className="text-center">
-                    <a style={{fontSize: '40px', padding: '5px'}} href={`https://${myTeam?.strTwitter}`} target="blank"><FontAwesomeIcon icon={faTwitter} /></a>
-                    <a style={{fontSize: '40px', padding: '5px', color: 'white'}} href={`https://${myTeam?.strWebsite}`}  target="blank"><FontAwesomeIcon icon={faGlobe} /></a>
-                    <a style={{fontSize: '40px', padding: '5px', color: 'red'}} href={`https://${myTeam?.strYoutube}`}  target="blank"><FontAwesomeIcon icon={faYoutube} /></a>
+                    <a style={{ fontSize: '40px', padding: '5px' }} href={`https://${myTeam?.strTwitter}`} target="blank"><FontAwesomeIcon icon={faTwitter} /></a>
+                    <a style={{ fontSize: '40px', padding: '5px', color: 'white' }} href={`https://${myTeam?.strWebsite}`} target="blank"><FontAwesomeIcon icon={faGlobe} /></a>
+                    <a style={{ fontSize: '40px', padding: '5px', color: 'red' }} href={`https://${myTeam?.strYoutube}`} target="blank"><FontAwesomeIcon icon={faYoutube} /></a>
+                    <p><small>© {myTeam?.strAlternate}</small> 2022</p>
                 </div>
             </div>
         </div>
